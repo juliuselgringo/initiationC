@@ -1,0 +1,17 @@
+Q1 La bonne synthaxe pour déclarer un pointeur sur un entier
+    b int *number;
+
+
+Q2 valeur par défaut d'un pointeur non utilisé
+    b n'importe quoi
+    // il faut donc initialiser la valeur au moin avec NULL
+
+Q3 un pointeur stocke
+    b une adresse
+
+Q4 int nb = 4, *pNb = &nb; 
+    j'accéde à 4 en utilisant nb ou *pNb
+
+Q5 void someFct(int *data) évite la copie des données, on appellera la fonction avec someFct(&data)
+
+Q6 %p permet d'insérer une adresse dans un printf

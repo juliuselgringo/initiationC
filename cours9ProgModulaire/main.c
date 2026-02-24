@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "player.h"
 
+// Attention il faut compiler main.c et player.c
 
 int main(void){
 

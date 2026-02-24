@@ -12,10 +12,10 @@
 
 */
 
-int inverser(int *poineurA,int *pointeurB){
+int inverser(int *pointeurA,int *pointeurB){
     
-    int tampon = *poineurA;
-    *poineurA = *pointeurB;
+    int tampon = *pointeurA;
+    *pointeurA = *pointeurB;
     *pointeurB = tampon;
         
     return 0;
