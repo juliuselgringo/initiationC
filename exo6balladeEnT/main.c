@@ -18,6 +18,8 @@
 
 */
 
+
+
 int main(void){
 
     // Saisie et gestion des erreurs de saisie
@@ -52,13 +54,32 @@ int main(void){
 
     // Initialiser T
     playground[1][1] = 'T';
+    T tPosition = {1,1};
 
     // Affichage du tableau
     displayPlayground(rows, cols, playground);
 
     // Deplacer T dans le playground
-     
-
+    int start = 1;
+    while(start){
+        displayMenu();
+        int choice = 0;
+        scanNumber(&choice);
+        switch (choice){
+        case 1:
+            moveT(rows, cols, playground,&tPosition);
+            displayPlayground(rows, cols, playground);
+            break;
+        case 2:
+            exit(1);
+            break;
+        default:
+            printf("Erreur de saisie!");
+            break;
+        }
+        
+    }
+    
 
     return 1;
 }
