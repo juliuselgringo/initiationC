@@ -40,58 +40,68 @@ int displayMenu(void){
 }
 
 int moveT(int rows, int cols, char playground[rows][cols], T *tPosition){
-    printf("Saisissez un deplacement par la 1ere lettre [h]aut [b]as [g]auche [d]roite: \n");
-    char move = 'B';
-    int res = scanf("%c", &move);
-    while(getchar() != '\n');
-    if(res != 1){
+    int start = 1;
+    while(start){
+        displayPlayground(rows, cols, playground);
+        printf("Saisissez un deplacement par la 1ere lettre \n[h]aut \n[b]as \n[g]auche \n[d]roite \n");
+        printf("[q]uitter \n");
+        char move = 'B';
+        int res = scanf("%c", &move);
         while(getchar() != '\n');
-        printf("Saisie incorrecte!\n");
-        return 0;
-    }
-    switch(move){
-        case 'h':
-            if(playground[tPosition->y-1][tPosition->x] != 'O'){
-                tPosition->y--;
-                playground[tPosition->y+1][tPosition->x] = ' ';
-                playground[tPosition->y][tPosition->x] = 'T';
-            }else{
-                printf("Deplacement impossible!\n");
-            }
-            break;
-        case 'b':
-            if(playground[tPosition->y+1][tPosition->x] != 'O'){
-                tPosition->y++;
-                playground[tPosition->y-1][tPosition->x] = ' ';
-                playground[tPosition->y][tPosition->x] = 'T';
-            }else{
-                printf("Deplacement impossible!\n");
-            }
-            break;
-        case 'g':
-            
-            if(playground[tPosition->y][tPosition->x-1] != 'O'){
-                tPosition->x--;
-                playground[tPosition->y][tPosition->x+1] = ' ';
-                playground[tPosition->y][tPosition->x] = 'T';
-            }else{
-                printf("Deplacement impossible!\n");
-            }
-            break;
-        case 'd':
-            if(playground[tPosition->y][tPosition->x]+1 != 'O'){
-                tPosition->x++;
-                playground[tPosition->y][tPosition->x-1] = ' ';
-                playground[tPosition->y][tPosition->x] = 'T';
-            }else{
-                printf("Deplacement impossible!\n");
-            }
-            break;
-        default:
-            break;
+        if(res != 1){
+            while(getchar() != '\n');
+            printf("Saisie incorrecte!\n");
+            return 0;
+        }
+        switch(move){
+            case 'h':
+                if(playground[tPosition->y-1][tPosition->x] != 'O'){
+                    tPosition->y--;
+                    playground[tPosition->y+1][tPosition->x] = ' ';
+                    playground[tPosition->y][tPosition->x] = 'T';
+                }else{
+                    printf("Deplacement impossible!\n");
+                }
+                break;
+            case 'b':
+                if(playground[tPosition->y+1][tPosition->x] != 'O'){
+                    tPosition->y++;
+                    playground[tPosition->y-1][tPosition->x] = ' ';
+                    playground[tPosition->y][tPosition->x] = 'T';
+                }else{
+                    printf("Deplacement impossible!\n");
+                }
+                break;
+            case 'g':
+                
+                if(playground[tPosition->y][tPosition->x-1] != 'O'){
+                    tPosition->x--;
+                    playground[tPosition->y][tPosition->x+1] = ' ';
+                    playground[tPosition->y][tPosition->x] = 'T';
+                }else{
+                    printf("Deplacement impossible!\n");
+                }
+                break;
+            case 'd':
+                if(playground[tPosition->y][tPosition->x]+1 != 'O'){
+                    tPosition->x++;
+                    playground[tPosition->y][tPosition->x-1] = ' ';
+                    playground[tPosition->y][tPosition->x] = 'T';
+                }else{
+                    printf("Deplacement impossible!\n");
+                }
+                break;
+            case 'q':
+                exit(1);
+                break;
+            default:
+                printf("Erreur de saisie!");
+                break;
+
+        }
 
     }
-     
+        
 
     return 1;
 }

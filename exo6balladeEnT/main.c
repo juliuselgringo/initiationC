@@ -68,7 +68,6 @@ int main(void){
         switch (choice){
         case 1:
             moveT(rows, cols, playground,&tPosition);
-            displayPlayground(rows, cols, playground);
             break;
         case 2:
             exit(1);
